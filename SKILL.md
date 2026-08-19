@@ -32,6 +32,7 @@ allowed-tools: Bash(*), Read, Write, Edit, Grep, Glob
 | "审查进度" / "现在该做什么" / "开始" / 会话开场 | `/session-start` | 已绑定项目 |
 | "今天任务已结束" / "收工" / "更新日志" / "写日志" | `/daily-wrap` | 已绑定项目 |
 | "记录决策" / "决定" + 内容 | `/decision-log` | 已绑定项目 |
+| "发现bug" / "新增bug" / "修复了bug" | `/bug-track` | 已绑定项目 |
 | "同步索引" / 路径/结构变更后 | `/index-sync` | 已绑定项目 |
 | "提交代码" / "commit" / "推送" | `/commit` | 已绑定项目 |
 

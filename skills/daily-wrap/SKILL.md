@@ -21,7 +21,7 @@ allowed-tools: Bash(*), Read, Write, Edit, Grep, Glob
    ↓
 [Phase 4: 生成日志] {{LOG_DIR}}/YYYY-MM-DD.md（同日多篇加 -b/-c 后缀）
    ↓
-[Phase 5: 同步] 勾选 ROADMAP 完成任务；决策写入决策记录区；GDD 如有涉及同步
+[Phase 5: 同步] 勾选 ROADMAP 完成任务；决策写入决策记录区；GDD 如有涉及同步；**如有 bug 修复 → 更新 ROADMAP「已知 Bug 跟踪」表状态（✅ 已修复 + 日期）**
    ↓
 [Phase 6: 提交] 日志 + 文档改动一起提交推送（不混入无关代码）
 ```

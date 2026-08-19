@@ -1,6 +1,9 @@
 # project-management — AI 项目管理代理 Skill
 
-> 把一个"项目管理会话"蒸馏成可复用方法论：会话开场审查 → 决策先落文档 → 每日收尾自动写日志 → 路径变更同步索引 → Git 提交规范。面向**单人独立开发者**（游戏/应用/内容皆可），方法论通用，通过项目根 `PROJECT_INDEX.md` 绑定具体项目。
+| [中文](README.md) | [English](README.en.md) |
+| :---: | :---: |
+
+> 把一个"项目管理会话"蒸馏成可复用方法论：会话开场审查 → 决策先落文档 → 每日收尾自动写日志 → Bug 登记跟踪 → 路径变更同步索引 → Git 提交规范。面向**单人独立开发者**（游戏/应用/内容皆可），方法论通用，通过项目根 `PROJECT_INDEX.md` 绑定具体项目。
 
 ## 许可证
 
@@ -31,6 +34,7 @@ cd ~/.dsh/skills && git clone <repo-url> project-management
 | "审查进度" / "开始" | 会话开场：git 审查 + 文档一致性核对 + 今日建议 |
 | "今天任务已结束" / "更新日志" | 读模板 → 生成当日 devlog → 同步 ROADMAP → 提交 |
 | "记录决策" + 内容 | 决策写 devlog + ROADMAP/GDD 同步 |
+| "发现bug" / "修复了bug" | bug 登记跟踪表 + devlog + 修复后状态更新 |
 | "同步索引" | 路径/结构变更后更新 PROJECT_INDEX.md |
 | "提交代码" | 分拣 → 规范提交 → 推送 |
 
@@ -43,6 +47,7 @@ project-management/
 │   ├── session-start/SKILL.md      # 会话开场审查
 │   ├── daily-wrap/SKILL.md         # 每日收尾日志
 │   ├── decision-log/SKILL.md       # 决策记录与同步
+│   ├── bug-track/SKILL.md          # Bug 登记与跟踪
 │   ├── index-sync/SKILL.md         # 索引同步
 │   └── commit/SKILL.md             # Git 提交规范
 ├── templates/
