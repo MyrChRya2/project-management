@@ -36,6 +36,20 @@ allowed-tools: Bash(*), Read, Write, Edit, Grep, Glob
 | "同步索引" / 路径/结构变更后 | `/index-sync` | 已绑定项目 |
 | "提交代码" / "commit" / "推送" | `/commit` | 已绑定项目 |
 
+## 共享参考（`shared-references/`，按需加载）
+
+子技能是**流程**，共享参考是**判据库**——遇到对应情形时先读它，别凭印象：
+
+| 文件 | 什么时候读 | 内容 |
+|---|---|---|
+| `shared-references/doc-roles.md` | 决定"这条信息写进哪份文档"时 | 文档职责划分 + 6 条铁律 |
+| `shared-references/git-workflow.md` | 分支 / 提交 / push 相关操作 | 单人开发的 Git 工作流约定 |
+| `shared-references/协作与交付.md` | 多会话 / 多窗口协作、合并冲突、审查提交历史、对外交付验收 | 16 条判据 |
+| `shared-references/事实核实.md` | 要相信一份汇报 / 一条提交信息，或要下结论之前 | 11 条"先验证、再结论"的判据 |
+| `shared-references/需求与范围.md` | 需求澄清、范围取舍、给用户写操作步骤 | 7 条判据 |
+
+> 判据来源：Jam（FirstProject）项目 88 条实战教训中筛出的**组 A（项目管理方法论）**，每条标注 `Jam L<编号>` 可回溯。
+
 ## 通用化约定
 
 - 文档路径用占位符 `{{DOCS_DIR}}`（默认 `docs/`）、`{{LOG_DIR}}`（默认 `docs/devlog/`）、`{{INDEX_FILE}}`（默认项目根 `PROJECT_INDEX.md`）。项目适配时在 `PROJECT_INDEX.md` 中声明实际路径。

@@ -55,8 +55,11 @@ project-management/
 │   ├── project-index.template.md   # Project index template (= project config)
 │   └── decision.template.md        # Major-decision template
 ├── shared-references/
-│   ├── doc-roles.md                # Document role separation
-│   └── git-workflow.md             # Git workflow conventions
+│   ├── doc-roles.md                # Document role separation (+ 6 ground rules)
+│   ├── git-workflow.md             # Git workflow conventions
+│   ├── 协作与交付.md                # Multi-session collaboration / commit history / external delivery sign-off (16 criteria, Chinese)
+│   ├── 事实核实.md                  # Verification checklist before concluding (11 criteria, Chinese)
+│   └── 需求与范围.md                # Requirement clarification & scope trade-offs (7 criteria, Chinese)
 ├── LICENSE                         # CC0 1.0
 ├── README.md                       # This file (Chinese)
 └── README.en.md                    # English version
@@ -71,3 +74,5 @@ project-management/
 ## Origin
 
 Distilled from the real project-management sessions of **EndlessRegret** (a Godot 2D action-platformer), iterated during live development. Core ideas: **docs are memory, code is the result; commit small and often; focus on one milestone at a time.**
+
+The criteria library under `shared-references/` (34 items across collaboration & delivery, verification, and requirements & scope) comes from **Jam (FirstProject)** — a deliberately isolated practice project built to accumulate experience and feed it back into project-manager. After Jam ended, its 88 lessons were triaged and the project-management methodology ones were folded in (each item is tagged `Jam L<n>` for traceability).

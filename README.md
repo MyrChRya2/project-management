@@ -55,8 +55,11 @@ project-management/
 │   ├── project-index.template.md   # 项目索引模板（= 项目配置）
 │   └── decision.template.md        # 重大决策模板
 ├── shared-references/
-│   ├── doc-roles.md                # 文档职责划分
-│   └── git-workflow.md             # Git 工作流约定
+│   ├── doc-roles.md                # 文档职责划分（+ 6 条铁律）
+│   ├── git-workflow.md             # Git 工作流约定
+│   ├── 协作与交付.md                # 多会话协作 / 提交历史 / 对外交付验收（16 条判据）
+│   ├── 事实核实.md                  # 下结论之前的核实清单（11 条判据）
+│   └── 需求与范围.md                # 需求澄清与范围取舍（7 条判据）
 ├── LICENSE                         # CC0 1.0
 └── README.md                       # 本文件
 ```
@@ -69,4 +72,6 @@ project-management/
 
 ## 设计来源
 
-本 skill 是从 EndlessRegret（Godot 2D 平台跳跃游戏）项目的真实项目管理会话中蒸馏而来，在真实开发中迭代成型。核心思想：**文档是记忆，代码是结果；小步提交防丢失；一次只聚焦一个里程碑。**
+本 skill 是从 **EndlessRegret**（Godot 2D 平台跳跃游戏）项目的真实项目管理会话中蒸馏而来，在真实开发中迭代成型。核心思想：**文档是记忆，代码是结果；小步提交防丢失；一次只聚焦一个里程碑。**
+
+`shared-references/` 的判据库（协作与交付 / 事实核实 / 需求与范围，共 34 条）来自 **Jam（FirstProject）** 项目的 88 条实战教训——那是为"隔离 + 积攒经验反哺 project-manager"而专设的练手项目，结束后按主题筛选、逐条反哺（每条标注 `Jam L<编号>` 可回溯原始出处）。另有 26 条引擎/技术知识与记忆系统、环境专属经验按来源分流，不进本 skill。
