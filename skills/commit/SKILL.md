@@ -35,8 +35,23 @@ type:
    ↓
 [Phase 3: 提交] 按格式写信息；提交后 git log --oneline -3 确认
    ↓
-[Phase 4: 推送] push 前 git status --short 确认工作区干净（或仅剩有意保留的未跟踪项）
+[Phase 4: 推送] 先做**网络预检**（见下「推送前网络预检」）；push 前 git status --short 确认工作区干净（或仅剩有意保留的未跟踪项）
 ```
+
+## 推送前网络预检（WSL / 代理环境）
+
+推送失败先分清是**认证**还是**网络**，别盲目重试。四步：
+
+1. **探针**：`ssh -T git@github.com` → 期望 `Hi <账号>! You've successfully authenticated…`
+   - `Permission denied (publickey)` ＝ **认证**问题（密钥缺失 / 权限过开 / 未加载），**不是**网络问题；
+   - 卡住 / `Connection timed out` ＝ **网络**问题。
+2. **本机固定姿势（2026-10-11 起，WSL 侧）**：`~/.ssh/config` 里 github.com 走 `~/.ssh/proxy-fallback.sh` —— **直连优先，直连不通自动经宿主机 FlClash 的 socks5 跳板**（先试默认网关＝NAT 模式，再试 `127.0.0.1`＝mirrored 模式）。
+   - ⚠️ 直连判据是**读到 SSH banner**，不是 TCP 连通：本机环境下 `nc -z` / bash `/dev/tcp` 对**任意远端 IP 都报成功**（假通），只有 banner 能区分真假。
+   - 代理可用的前提：FlClash 打开 **Allow LAN**（GUI 开关），或 WSL 用 mirrored 模式（`C:\Users\<用户>\.wslconfig` 的 `[wsl2]` + `networkingMode=mirrored`；**改后必须 `wsl --shutdown` 才生效、会打断所有会话**——配置可先备好，重启由用户挑时间）。
+   - 直连可用时**不要长期挂代理**（代理只做回退）。
+3. **新环境先自检两件事**：`git config --global user.name` / `user.email` 缺失 → commit 报 `Author identity unknown`（临时可用 `git -c user.name=… -c user.email=…`）；`safe.directory` 缺失 → /mnt 下报 `dubious ownership`。
+4. **引用新鲜度**：`git status -sb` 的 ahead/behind 基于**上次 fetch**、可能过期 → **先 `git fetch origin`**，再下"领先/落后 N 笔"的结论。
+5. **失败处置**：本地提交保留、**不强推**；把预检输出（`ssh -T` 结果 + fetch 后真实差距）报给用户，由他决定推送时机。
 
 ## 规则
 
@@ -49,4 +64,4 @@ type:
 - **`git diff --name-status` 的 `R`（改名）条目必须核对两端路径**：语义不搭（场景文件跑到素材目录）＝先怀疑误操作（`协作与交付.md` §9，Jam L67）。
 - 提交前顺手确认：**文档勾选/状态是否与本次代码实际一致**（"标完成但未接线"是最常见的文档失真）。
 - force push 需用户明确确认（单人仓库可用 `--force-with-lease`，仅用于修正刚推送的错误提交）。
-- 推送失败（SSH 凭据等）时，本地提交保留，报告用户手动推送。
+- 推送失败（SSH 凭据 / 网络）时：本地提交保留、**不要强推**；按「推送前网络预检」定位原因，把结论与真实差距报给用户，由他决定推送时机。
